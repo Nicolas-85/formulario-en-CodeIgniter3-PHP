@@ -17,7 +17,7 @@
      <form name='formulario_registro' action="<?= base_url('registro/registrar') ?>" method='POST'> <!--action= a qué ruta se envían los datos del form.-->
         <div>
             <label for="username">Nombre de usuario: </label>
-            <input name="user_name" id="user_name" value="">
+            <input name="user_name" id="user_name" autocomplete="off" value="">
         </div>
         <div>
             <label for="email">Correo Electrónico: </label>

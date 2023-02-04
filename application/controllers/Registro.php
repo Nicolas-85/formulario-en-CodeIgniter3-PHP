@@ -23,12 +23,12 @@ class registro extends CI_Controller {
         $username = $this->input->post('user_name');//recogemos los datos que vienen por método post desde el form.
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-        $datos = array( //creamos un array para guardar la data del form y lueg pasarlo todo junto.
+        $datos = array( //creamos un array para guardar los datos del form y luego pasarlo todo junto al modelo.
             'user_name'=> $username,
             'email'=> $email,
-            'password'=> $password
+            'password'=> $password //a estos datos le falta range y status, en el la tabla los tiene pero son de manejo interno.
         );
-        $data['menu'] = main_menu();
+        $data['menu'] = main_menu();// cada vez que se ejecute el método registrar, se ejecuta el helper de menú para que se vea.
         if($this->Usuario->crear($datos)){ //condicional para ver si nos devuelve el resultado pasandole $data al método crear del modelo Usuario
             $data['msj'] = 'Registro exitoso';//si hay un resultado, creamos una variable 'msj' y le asignamos un msj de éxito.
             $this->load->view('registro', $data);// si hay un resultado, cargamos la vista registro, con el msj de éxito como 2do parámetro.
